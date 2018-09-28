@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import AvaliacaoCard from './components/AvaliacaoCard.vue';
+import AvaliacaoCard from './components/Avaliacao.vue';
 
 export default {
   name: 'app',

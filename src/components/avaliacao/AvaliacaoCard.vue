@@ -1,5 +1,6 @@
 <template>
   <div class="avaliacao">
+    <cabecalho-card/>
     <texto-mentor nome-mentor="Chico Buarque" foto-mentor="http://images.virgula.com.br/2015/06/capap.jpg"/>
     <stars />
     <comentario/>
@@ -10,12 +11,14 @@
 import TextoMentor from './TextoMentor.vue';
 import Stars from './Stars.vue';
 import Comentario from './Comentario.vue';
+import CabecalhoCard from './CabecalhoCard.vue';
 
 export default {
   name: 'Avaliacao',
   components: {
     Stars,
     TextoMentor,
+    CabecalhoCard,
     Comentario,
   },
 };
@@ -38,8 +41,8 @@ export default {
     color #ffffff
   .avaliacao
     margin 0 auto
-    width 640px
-    height 585px
+    width 55%
+    height 45%
     border-radius 4px
     background-color #ffffff
     box-shadow 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.2)
