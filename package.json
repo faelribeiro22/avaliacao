@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "vue": "^2.5.17",
+    "vue-star-rating": "^1.6.0",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
