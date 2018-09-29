@@ -1,14 +1,16 @@
 <template>
-  <div>
+  <div v-bind:class="[ selected ? 'selected' : 'tabPassos', { 'checked': check }  ]" >
     <span class="titlePassos">{{ titulo }}</span>
-    <p>{{ descricao }}</p>
+    <p class="descricao">{{ descricao }}</p>
+    <svgicon v-if="check" icon="icon-check" width="30" height="30" color="#72BF7A" />
   </div>
 </template>
 
 <script>
+import '../../compiled-icons/icon-check';
 
 export default {
-  name: 'app',
+  name: 'CardPassos',
   components: {
   },
   props: {
@@ -33,10 +35,30 @@ export default {
 </script>
 <style lang="stylus">
   .titlePassos
+    width 240px
+    min-height 60px
+    text-transform uppercase
     font-size 12px
     font-weight 600
     font-style normal
     font-stretch normal
     line-height normal
     letter-spacing normal
+  .tabPassos
+    display flex
+    text-align left
+    padding 5px
+    box-shadow: inset 0 -1px 0 0 #eeeeee;
+  .checked
+    color #4caf50
+  .descricao
+    font-size 14px
+    line-height 18px
+    color #757575
+  .selected
+    width 240px
+    height 118px
+    background-color rgba(0, 0, 0, 0.02)
+    box-shadow inset 0 -1px 0 0 #eeeeee, inset -2px 0 0 0 #00af7e
+    text-align left
 </style>

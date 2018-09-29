@@ -1,14 +1,14 @@
 <template>
-  <div>
+  <div class="stars">
     <star-rating
       :rating="rating"
       :show-rating="false"
       active-color="#fdd835"
-      border-width="8"
+      :border-width="8"
       border-color="#eeeeee"
       inactive-color="#fff"
       rounded-corners
-      star-size="38"/>
+      v-bind:star-size="38"/>
   </div>
 </template>
 <script>
@@ -26,3 +26,7 @@ export default {
   },
 };
 </script>
+<style lang="stylus" scoped>
+  .stars
+    justify-content space-around
+</style>
