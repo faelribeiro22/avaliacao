@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="progressBar">
     <p>Encerrará em {{ qtdDias }} dias</p>
     <div class="meter">
       <span v-bind:style="{ width: progress + '%' }"></span>
@@ -23,9 +23,26 @@ export default {
 };
 </script>
 <style lang="stylus" scoped>
+  .progressBar
+    margin-left 20px
+    margin-bottom 30px
+    height 60px
+    text-align left
+    box-shadow inset 0 -1px 0 0 #eeeeee
+    p
+      font-size 14px
+      font-weight 500
+      line-height 1.43
+      color #bdbdbd
   .meter
     height 8px
-
+    width 200px
+    position relative
+    background #eeeeee
+    -moz-border-radius 25px
+    -webkit-border-radius 25px
+    border-radius 25px
+    box-shadow inset 0 -1px 1px rgba(255,255,255,0.3)
     span
       display block
       height 100%

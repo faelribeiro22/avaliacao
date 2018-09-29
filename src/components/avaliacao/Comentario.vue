@@ -15,6 +15,11 @@
 
 export default {
   name: 'Comentario',
+  watch: {
+    comentario(texto) {
+      this.$store.commit('COMENTARIO', texto);
+    },
+  },
   data() {
     return {
       comentario: '',

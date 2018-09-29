@@ -1,7 +1,7 @@
 <template>
   <div v-bind:class="[ selected ? 'selected' : 'tabPassos', { 'checked': check }  ]" >
     <span class="titlePassos">{{ titulo }}</span>
-    <p class="descricao">{{ descricao }}</p>
+    <p class="descricao" v-if="descricao != ''">{{ descricao }}</p>
     <svgicon v-if="check" icon="icon-check" width="30" height="30" color="#72BF7A" />
   </div>
 </template>
@@ -47,6 +47,7 @@ export default {
   .tabPassos
     display flex
     text-align left
+    margin-left 20px
     padding 5px
     box-shadow: inset 0 -1px 0 0 #eeeeee;
   .checked
@@ -56,8 +57,8 @@ export default {
     line-height 18px
     color #757575
   .selected
-    width 240px
     height 118px
+    padding 20px
     background-color rgba(0, 0, 0, 0.02)
     box-shadow inset 0 -1px 0 0 #eeeeee, inset -2px 0 0 0 #00af7e
     text-align left

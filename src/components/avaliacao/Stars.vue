@@ -2,6 +2,7 @@
   <div class="stars">
     <star-rating
       :rating="rating"
+      @rating-selected="setRating"
       :show-rating="false"
       active-color="#fdd835"
       :border-width="8"
@@ -24,9 +25,15 @@ export default {
       rating: 1,
     };
   },
+  methods: {
+    setRating(rating) {
+      this.rating = rating;
+      this.$store.commit('ADD_STAR', rating);
+    },
+  },
 };
 </script>
 <style lang="stylus" scoped>
   .stars
-    justify-content space-around
+    margin-left 30%
 </style>

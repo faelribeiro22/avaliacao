@@ -3,7 +3,9 @@
     <texto-mentor nome-mentor="Chico Buarque" foto-mentor="http://images.virgula.com.br/2015/06/capap.jpg"/>
     <stars />
     <comentario/>
-    <button class="buttonEnviar">Avaliar mentor e finalizar ciclo de formação</button>
+    <button
+    class="buttonEnviar"
+    @click="submeterAvaliacao">Avaliar mentor e finalizar ciclo de formação</button>
   </div>
 </template>
 <script>
@@ -17,6 +19,13 @@ export default {
     Stars,
     TextoMentor,
     Comentario,
+  },
+  methods: {
+    submeterAvaliacao() {
+      console.log('eiiiiiiii');
+      console.log(this.$store.state.comentario);
+      console.log(this.$store.state.stars);
+    },
   },
 };
 </script>
