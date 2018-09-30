@@ -39,7 +39,7 @@ export default {
         method: 'post',
         url: 'https://firestore.googleapis.com/v1beta1/projects/teste-dev-api/databases/%28default%29/documents/rates/',
         crossdomain: true,
-        data: {
+        body: {
           field: {
             user_name: {
               stringValue: 'Chico Buarque',
