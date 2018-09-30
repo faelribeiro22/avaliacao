@@ -5,7 +5,7 @@
       <side-options/>
       <div class="container-card">
         <cabecalho-card class="cabecalho-card"/>
-        <avaliacao-card/>
+        <avaliacao-card />
       </div>
     </div>
   </div>
@@ -32,6 +32,7 @@ export default {
     display flex
   .container-card
     width 100%
+    padding-left 240px
   .cabecalho-card
     padding-left 20px
 </style>

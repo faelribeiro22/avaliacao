@@ -1,17 +1,20 @@
 <template>
   <div class="avaliacao">
-    <texto-mentor nome-mentor="Chico Buarque" foto-mentor="http://images.virgula.com.br/2015/06/capap.jpg"/>
-    <stars />
-    <comentario/>
-    <button
-    class="buttonEnviar"
-    @click="submeterAvaliacao">Avaliar mentor e finalizar ciclo de formação</button>
+    <form @submit.prevent="submeterAvaliacao">
+      <texto-mentor nome-mentor="Chico Buarque" foto-mentor="http://images.virgula.com.br/2015/06/capap.jpg"/>
+      <stars />
+      <comentario/>
+      <button
+      class="buttonEnviar">Avaliar mentor e finalizar ciclo de formação</button>
+    </form>
   </div>
 </template>
 <script>
 import TextoMentor from './TextoMentor.vue';
 import Stars from './Stars.vue';
 import Comentario from './Comentario.vue';
+
+const axios = require('axios');
 
 export default {
   name: 'Avaliacao',
@@ -21,10 +24,61 @@ export default {
     Comentario,
   },
   methods: {
-    submeterAvaliacao() {
-      console.log('eiiiiiiii');
-      console.log(this.$store.state.comentario);
-      console.log(this.$store.state.stars);
+    async submeterAvaliacao() {
+      debugger;
+      if (this.$store.state.comentario === '' ||
+      this.$store.state.comentario.length < 10 ||
+      this.$store.state.comentario.length > 250) {
+        window.alert('Preencha o campo comentário no mínimo 10 letras!');
+        return false;
+      }
+      if (this.$store.state.stars === 0) {
+        window.alert('Preencha o campo comentário no mínimo 10 letras!');
+        return false;
+      }
+      axios({
+        method: 'post',
+        url: 'https://firestore.googleapis.com/v1beta1/projects/teste-dev-api/databases/%28default%29/documents/rates/',
+        crossdomain: true,
+        data: {
+          field: {
+            user_name: {
+              stringValue: 'Chico Buarque',
+            },
+            comment: {
+              stringValue: this.$store.state.comentario,
+            },
+            value: {
+              integerValue: this.$store.state.stars,
+            },
+          },
+        },
+      }).then((response) => {
+        console.log(response);
+        window.alert('Sucesso na requisição');
+      }).catch((response) => {
+        console.log('erro', response);
+        window.alert('Erro na requisição');
+      });/*
+      const response = await axios.post(
+        'https://firestore.googleapis.com/v1beta1/projects/teste-dev-api/databases/%28default%29/documents/rates/', {
+          data: {
+            field: {
+              user_name: {
+                stringValue: 'Chico Buarque',
+              },
+              comment: {
+                stringValue: this.$store.state.comentario,
+              },
+              value: {
+                integerValue: this.$store.state.stars,
+              },
+            },
+          },
+        },
+      );
+      console.log('response', response); */
+      return true;
     },
   },
 };
@@ -46,9 +100,10 @@ export default {
     text-align center
     color #ffffff
     margin-top 39px
+    cursor pointer
   .avaliacao
     margin 0 auto
-    width 59%
+    width 62%
     padding 20px
     margin-top 20px
     height 80%

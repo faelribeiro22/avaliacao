@@ -7,7 +7,8 @@
       id="comentario"
       cols="30"
       rows="10"
-      class="textArea">
+      class="textArea"
+      required>
     </textarea>
   </div>
 </template>
@@ -38,7 +39,6 @@ export default {
     color: #9e9e9e;
   .comentario
     display flexbox
-    flex-direction column
     max-width 600px
     max-height 192px
     width 100%
@@ -47,7 +47,7 @@ export default {
     border-radius 4px
     border solid 1px #eeeeee
     padding 20px
-    margin-top 21px
+    margin 21px auto 0 auto
   .textArea
     overflow-y auto
     padding-right 10px

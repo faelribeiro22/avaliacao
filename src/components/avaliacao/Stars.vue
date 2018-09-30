@@ -35,5 +35,6 @@ export default {
 </script>
 <style lang="stylus" scoped>
   .stars
-    margin-left 30%
+    display flex
+    justify-content center
 </style>

@@ -53,7 +53,8 @@ export default {
 <style lang="stylus">
   .sideOptions
     width 240px
-    height 736px
+    height 100%
+    position absolute
     background-color #f5f5f5
     box-shadow inset -1px 0 0 0 #eeeeee
 </style>
