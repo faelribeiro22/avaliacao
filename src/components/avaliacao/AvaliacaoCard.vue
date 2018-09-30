@@ -56,25 +56,7 @@ export default {
         window.alert('Sucesso na requisição');
       }).catch(() => {
         window.alert('Erro na requisição');
-      });/*
-      const response = await axios.post(
-        'https://firestore.googleapis.com/v1beta1/projects/teste-dev-api/databases/%28default%29/documents/rates/', {
-          data: {
-            field: {
-              user_name: {
-                stringValue: 'Chico Buarque',
-              },
-              comment: {
-                stringValue: this.$store.state.comentario,
-              },
-              value: {
-                integerValue: this.$store.state.stars,
-              },
-            },
-          },
-        },
-      );
-      console.log('response', response); */
+      });
       return true;
     },
   },
