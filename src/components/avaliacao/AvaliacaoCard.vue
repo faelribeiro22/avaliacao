@@ -25,7 +25,6 @@ export default {
   },
   methods: {
     async submeterAvaliacao() {
-      debugger;
       if (this.$store.state.comentario === '' ||
       this.$store.state.comentario.length < 10 ||
       this.$store.state.comentario.length > 250) {
@@ -53,11 +52,9 @@ export default {
             },
           },
         },
-      }).then((response) => {
-        console.log(response);
+      }).then(() => {
         window.alert('Sucesso na requisição');
-      }).catch((response) => {
-        console.log('erro', response);
+      }).catch(() => {
         window.alert('Erro na requisição');
       });/*
       const response = await axios.post(

@@ -1,12 +1,9 @@
 // eslint-disable-next-line
 import VueSVGIcon from 'vue-svgicon';
 import Vue from 'vue';
-import Vuelidate from 'vuelidate';
 import App from './App.vue';
 import store from './store';
 
-
-Vue.use(Vuelidate);
 Vue.use(VueSVGIcon);
 
 Vue.config.productionTip = false;
